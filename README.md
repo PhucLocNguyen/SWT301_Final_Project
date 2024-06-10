@@ -1,9 +1,37 @@
 # SWT391_Final_Project
-This is a Jewelry Production Order System repository for SWT391-NET1806 in SUMMER2024 . 
-The Jewellery Production Ordering System is a new software system that replaces the current manual directly at shops for ordering and picking up jewellery. The system is expected to evolve over several releases, ultimately connecting to the Internet ordering services to payment online.
-Users:
-● 	Customers: End users who can successfully place orders online by selecting a design and customise jewellery details.
-● 	Sales Staff: Sales staff who will receive requirements from customers, confirm, quote a price for customers, and handover the product to the customer.
-● 	Design Staff: Design staff who will receive requirements from customers after accepting the price, upload the 3D design based on what customers require.
-● 	Managers: Managers who can evaluate customer requests and give prices to sales staff, manage the order and manage the price for material.
-● 	Administrators (Admin): Administrators have access to management, company design management, and view dashboard.
+
+This repository contains the Jewelry Production Order System for the SWT391-NET1806 course in SUMMER2024. The Jewelry Production Ordering System is a new software solution designed to replace the current manual process of ordering and picking up jewelry directly at shops. The system is intended to evolve through multiple releases, eventually integrating Internet ordering services with online payment capabilities.
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Users](#users)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Introduction
+The Jewelry Production Ordering System aims to streamline the process of ordering and picking up jewelry. It allows customers to place orders online, customize jewelry details, and facilitates communication between customers, sales staff, and design staff. Managers can oversee orders, manage material prices, and ensure smooth operations. Administrators have comprehensive access to manage designs, view dashboards, and oversee company operations.
+
+## Users
+The system supports the following types of users:
+- **Customers**: End users who can place orders online by selecting designs and customizing jewelry details.
+- **Sales Staff**: Staff who receive requirements from customers, confirm orders, quote prices, and hand over products to customers.
+- **Design Staff**: Staff who receive requirements from customers after price confirmation and upload 3D designs based on customer requirements.
+- **Managers**: Managers who evaluate customer requests, provide prices to sales staff, manage orders, and oversee material prices.
+- **Administrators (Admin)**: Administrators who manage company designs, view dashboards, and have overall management access.
+
+## Features
+- **Online Ordering**: Customers can place orders online and customize their jewelry.
+- **Price Quoting**: Sales staff can confirm orders and quote prices.
+- **3D Design Uploads**: Design staff can upload 3D designs as per customer requirements.
+- **Order Management**: Managers can evaluate requests, manage orders, and oversee material pricing.
+- **Administrative Access**: Administrators can manage designs, view comprehensive dashboards, and manage company operations.
+
+## Installation
+To install the Jewelry Production Order System, follow these steps:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/SWT391_Final_Project.git
