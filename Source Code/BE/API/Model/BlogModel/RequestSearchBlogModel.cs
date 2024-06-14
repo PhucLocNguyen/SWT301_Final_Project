@@ -5,7 +5,7 @@
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string? Image { get; set; }
-        public string? ManagerId { get; set; }
+        public int? ManagerId { get; set; }
         public SortContent? SortContent { get; set; }
         public int pageIndex { get; set; } = 1;
         public int pageSize { get; set; } = int.MaxValue;

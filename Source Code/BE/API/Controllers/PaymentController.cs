@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
+using Repositories.Entity;
 using System.Linq.Expressions;
 
 namespace API.Controllers
@@ -18,7 +19,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult SearchBlog([FromQuery] RequestSearchPaymentModel requestSearchPaymentModel)
+        public IActionResult SearchPayment([FromQuery] RequestSearchPaymentModel requestSearchPaymentModel)
         {
             var sortBy = requestSearchPaymentModel.SortContent != null ? requestSearchPaymentModel.SortContent?.sortPaymentBy.ToString() : null;
             var sortType = requestSearchPaymentModel.SortContent != null ? requestSearchPaymentModel.SortContent?.sortPaymentType.ToString() : null;
@@ -70,7 +71,7 @@ namespace API.Controllers
             var Payment = requestCreatePaymentModel.ToPaymentEntity();
             _unitOfWork.PaymentRepository.Insert(Payment);
             _unitOfWork.Save();
-            return Ok();
+            return Ok("Create successfully");
         }
 
         [HttpPut("{id}")]

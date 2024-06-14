@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
+using Repositories.Entity;
 using System.Linq.Expressions;
 
 namespace API.Controllers
@@ -18,7 +19,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult SearchBlog([FromQuery] RequestSearchStonesModel requestSearchStonesModel)
+        public IActionResult SearchStones([FromQuery] RequestSearchStonesModel requestSearchStonesModel)
         {
             var sortBy = requestSearchStonesModel.SortContent != null ? requestSearchStonesModel.SortContent?.sortStonetBy.ToString() : null;
             var sortType = requestSearchStonesModel.SortContent != null ? requestSearchStonesModel.SortContent?.sortStonesType.ToString() : null;
@@ -68,7 +69,7 @@ namespace API.Controllers
             var Stones = requestCreateStonesModel.toStonesEntity();
             _unitOfWork.StoneRepository.Insert(Stones);
             _unitOfWork.Save();
-            return Ok();
+            return Ok("Create successfully");
         }
         [HttpPut]
         public IActionResult UpdateStones(int id, RequestCreateStonesModel requestCreateStonesModel)
@@ -95,8 +96,23 @@ namespace API.Controllers
                 return NotFound();
             }
             _unitOfWork.StoneRepository.Delete(existedStonesUpdate);
-            _unitOfWork.Save();
-            return Ok();
+            try
+            {
+                _unitOfWork.Save();
+            }
+            catch (DbUpdateException ex)
+            {
+                if (_unitOfWork.IsForeignKeyConstraintViolation(ex))
+                {
+                    return BadRequest("Cannot delete this item because it is referenced by another entity.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok("Delete Successfully");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using API.Model.DesignModel;
 using Repositories;
+using Repositories.Entity;
 
 namespace API.Model.MasterGemstoneModel
 {
@@ -16,11 +17,12 @@ namespace API.Model.MasterGemstoneModel
                 Cut = requestCreateMasterGemstoneModel.Cut,
                 Weight = requestCreateMasterGemstoneModel.Weight,
                 Shape = requestCreateMasterGemstoneModel.Shape,
+                Image = requestCreateMasterGemstoneModel.Image,
             };
         }
-        public static MasterGemstoneDTO toMasterGemstonesDTO(this MasterGemstone masterGemstone)
+        public static ReponseMasterGemstone toMasterGemstonesDTO(this MasterGemstone masterGemstone)
         {
-            return new MasterGemstoneDTO()
+            return new ReponseMasterGemstone()
             {
                 MasterGemstoneId = masterGemstone.MasterGemstoneId,
                 Kind = masterGemstone.Kind,
@@ -31,6 +33,7 @@ namespace API.Model.MasterGemstoneModel
                 Weight = masterGemstone.Weight,
                 Shape = masterGemstone.Shape,
                 Designs = masterGemstone.Designs.Select(x=>x.toCreateDesign()).ToList(),
+                Image = masterGemstone.Image,
             };
         }
 
@@ -38,6 +41,7 @@ namespace API.Model.MasterGemstoneModel
         {
             return new RequestCreateMasterGemstoneModel()
             {
+                MasterGemstoneId = masterGemstone.MasterGemstoneId,
                 Kind = masterGemstone.Kind,
                 Size = (decimal)masterGemstone.Size,
                 Price = (decimal)masterGemstone.Price,
@@ -45,6 +49,7 @@ namespace API.Model.MasterGemstoneModel
                 Cut = masterGemstone.Cut,
                 Weight = (decimal)masterGemstone.Weight,
                 Shape = masterGemstone.Shape,
+                Image = masterGemstone.Image,
             };
         }
     }

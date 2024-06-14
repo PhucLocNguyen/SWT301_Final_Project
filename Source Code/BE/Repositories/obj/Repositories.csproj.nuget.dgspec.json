@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HocTap\\AspDotNet_Practice\\NET1806_SWP391_Project\\BE\\Repositories\\Repositories.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj": {}
   },
   "projects": {
-    "D:\\HocTap\\AspDotNet_Practice\\NET1806_SWP391_Project\\BE\\Repositories\\Repositories.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HocTap\\AspDotNet_Practice\\NET1806_SWP391_Project\\BE\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "D:\\HocTap\\AspDotNet_Practice\\NET1806_SWP391_Project\\BE\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\HocTap\\AspDotNet_Practice\\NET1806_SWP391_Project\\BE\\Repositories\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.6, )"

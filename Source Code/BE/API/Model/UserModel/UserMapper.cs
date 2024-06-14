@@ -1,25 +1,33 @@
 ﻿using Repositories.Entity;
+using System.Security.Cryptography;
+using BCrypt.Net;
 
 namespace API.Model.UserModel
 {
     public static class UserMapper
     {
-        public static AppUser toAppUser(this RequestCreateUserModel requestCreateUserModel)
+        public static Users toUserEntity(this RequestRegisterAccount requestRegisterAccount, Role role)
         {
-            return new AppUser()
+            return new Users()
             {
-                Email = requestCreateUserModel.Email,
-                UserName = requestCreateUserModel.Username,
+                Username = requestRegisterAccount.Username,
+                Name = requestRegisterAccount.Username,
+                Email = requestRegisterAccount.Email,
+                Password = BCrypt.Net.BCrypt.HashPassword(requestRegisterAccount.Password),
+                RoleId = role.RoleId,
+                Role = role,
             }; 
         }
 
-        public static UserDTO toUserDTO(this AppUser user)
+        public static UserDTO toUserDTO(this Users user)
         {
             return new UserDTO()
             {
-                UserId = user.Id,
-                Username = user.UserName,
-                Email = user.Email
+                UserId = user.UsersId,
+                Username = user.Username,
+                Name = user.Name,
+                Email = user.Email,
+                
             };
         }
     }

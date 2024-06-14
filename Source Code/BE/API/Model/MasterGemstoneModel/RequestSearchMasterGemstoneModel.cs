@@ -31,7 +31,6 @@
         public SortMasterGemstoneByEnum sortMasterGemstoneBy { get; set; }
         public SortMasterGemstoneTypeEnum sortMasterGemstoneType { get; set; }
 
-        public GroupBy groupBy { get; set; }
     }
 
     public enum SortMasterGemstoneByEnum
@@ -50,8 +49,4 @@
         Descending = 2,
     }
 
-    public enum GroupBy
-    {
-        True = 1,
-    }
 }

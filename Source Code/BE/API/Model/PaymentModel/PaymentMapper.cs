@@ -1,4 +1,4 @@
-﻿using Repositories;
+﻿using Repositories.Entity;
 
 namespace API.Model.PaymentModel
 {

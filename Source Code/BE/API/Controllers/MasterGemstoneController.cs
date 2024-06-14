@@ -3,6 +3,7 @@ using API.Model.MasterGemstoneModel;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Repositories;
+using Repositories.Entity;
 
 namespace API.Controllers
 {
@@ -18,11 +19,10 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult SearchBlog([FromQuery] RequestSearchMasterGemstoneModel requestSearchMasterGemstoneModel)
+        public IActionResult SearchMasterGemstone([FromQuery] RequestSearchMasterGemstoneModel requestSearchMasterGemstoneModel)
         {
             var sortBy = requestSearchMasterGemstoneModel.SortContent != null ? requestSearchMasterGemstoneModel.SortContent?.sortMasterGemstoneBy.ToString() : null;
             var sortType = requestSearchMasterGemstoneModel.SortContent != null ? requestSearchMasterGemstoneModel.SortContent?.sortMasterGemstoneType.ToString() : null;
-            var groupBy = requestSearchMasterGemstoneModel.SortContent != null ? requestSearchMasterGemstoneModel.SortContent?.groupBy.ToString() : null ;
             Expression<Func<MasterGemstone, bool>> filter = x =>
                 (string.IsNullOrEmpty(requestSearchMasterGemstoneModel.Kind) || x.Kind.Contains(requestSearchMasterGemstoneModel.Kind)) &&
                 (x.Size == requestSearchMasterGemstoneModel.Size || requestSearchMasterGemstoneModel.Size == null) &&
@@ -36,10 +36,6 @@ namespace API.Controllers
 
             Func<IQueryable<MasterGemstone>, IOrderedQueryable<MasterGemstone>> orderBy = null;
 
-            if (!string.IsNullOrEmpty(groupBy))
-            {
-                orderBy = query => (IOrderedQueryable<MasterGemstone>)query.GroupBy(p => EF.Property<object>(p, sortBy));
-            }
 
             if (!string.IsNullOrEmpty(sortBy))
             {
@@ -82,7 +78,7 @@ namespace API.Controllers
             var MasterGemstone = requestCreateMasterGemstone.toMasterGemstonesEntity();
             _unitOfWork.MasterGemstoneRepository.Insert(MasterGemstone);
             _unitOfWork.Save();
-            return Ok();
+            return Ok("Create successfully");
         }
 
         [HttpPut]
@@ -108,7 +104,7 @@ namespace API.Controllers
         }
 
         [HttpDelete]
-        public IActionResult DeleteMasterGemstones(int id)
+        public IActionResult DeleteMasterGemstone(int id)
         {
             var ExistedMasterGemstone = _unitOfWork.MasterGemstoneRepository.GetByID(id);
             if (ExistedMasterGemstone == null)
@@ -116,8 +112,23 @@ namespace API.Controllers
                 return NotFound();
             }
             _unitOfWork.MasterGemstoneRepository.Delete(ExistedMasterGemstone);
-            _unitOfWork.Save();
-            return Ok();
+            try
+            {
+                _unitOfWork.Save();
+            }
+            catch (DbUpdateException ex)
+            {
+                if (_unitOfWork.IsForeignKeyConstraintViolation(ex))
+                {
+                    return BadRequest("Cannot delete this item because it is referenced by another entity.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok("Delete Successfully");
         }
 
     }

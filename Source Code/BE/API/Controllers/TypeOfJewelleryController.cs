@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
+using Repositories.Entity;
 using System.Linq.Expressions;
 
 namespace API.Controllers
@@ -18,7 +19,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] RequestSearchTypeOfJewelleryModel requestSearchTypeOfJewelleryModel)
+        public IActionResult SearchJewellery([FromQuery] RequestSearchTypeOfJewelleryModel requestSearchTypeOfJewelleryModel)
         {
 
             var sortBy = requestSearchTypeOfJewelleryModel.SortContent != null ? requestSearchTypeOfJewelleryModel.SortContent?.sortTypeOfJewelleryBy.ToString() : null;
@@ -64,10 +65,11 @@ namespace API.Controllers
             var TypeOfJewellery = new TypeOfJewellery()
             {
                 Name = requestTypeOfJewelleryModel.Name,
+                Image = requestTypeOfJewelleryModel.Image,
             };
             _unitOfWork.TypeOfJewellryRepository.Insert(TypeOfJewellery);
             _unitOfWork.Save();
-            return Ok();
+            return Ok("Create successfully");
         }
 
         [HttpPut]
@@ -93,8 +95,23 @@ namespace API.Controllers
                 return NotFound();
             }
             _unitOfWork.TypeOfJewellryRepository.Delete(existedTypeOfJewellery);
-            _unitOfWork.Save();
-            return Ok();
+            try
+            {
+                _unitOfWork.Save();
+            }
+            catch (DbUpdateException ex)
+            {
+                if (_unitOfWork.IsForeignKeyConstraintViolation(ex))
+                {
+                    return BadRequest("Cannot delete this item because it is referenced by another entity.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok("Delete Successfully");
         }
     }
 }

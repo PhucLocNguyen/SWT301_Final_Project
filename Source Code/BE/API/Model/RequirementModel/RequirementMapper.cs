@@ -1,4 +1,4 @@
-﻿using Repositories;
+﻿using Repositories.Entity;
 
 namespace API.Model.RequirementModel
 {
@@ -14,11 +14,11 @@ namespace API.Model.RequirementModel
 
                 Size = requestCreateRequirementModel.Size,
 
-                DesignId = requestCreateRequirementModel.DesignId,
+                DesignId = (int)requestCreateRequirementModel.DesignId,
 
                 Design3D = requestCreateRequirementModel.Design3D,
 
-                GoldPriceAtMoment = requestCreateRequirementModel.GoldPriceAtMoment,
+                MaterialPriceAtMoment = requestCreateRequirementModel.MaterialPriceAtMoment,
 
                 StonePriceAtMoment = requestCreateRequirementModel.StonePriceAtMoment,
 
@@ -31,9 +31,9 @@ namespace API.Model.RequirementModel
                 StaffNote = requestCreateRequirementModel.StaffNote,
             };
         }
-        public static RequirementDTO toRequirementDTO(this Requirement requirement)
+        public static ReponseRequirement toRequirementDTO(this Requirement requirement)
         {
-            return new RequirementDTO()
+            return new ReponseRequirement()
             {
                 RequirementId = requirement.RequirementId,
                 Status = requirement.Status,
@@ -46,7 +46,7 @@ namespace API.Model.RequirementModel
 
                 Design3D = requirement.Design3D,
 
-                GoldPriceAtMoment = requirement.GoldPriceAtMoment,
+                GoldPriceAtMoment = requirement.MaterialPriceAtMoment,
 
                 StonePriceAtMoment = requirement.StonePriceAtMoment,
 

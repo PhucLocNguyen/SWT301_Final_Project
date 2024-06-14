@@ -1,23 +1,21 @@
-﻿using Repositories.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Repositories
+namespace Repositories.Entity;
+
+public partial class Material
 {
+    public int MaterialId { get; set; }
 
-    public partial class Material
-    {
-        public int MaterialId { get; set; }
+    public string Name { get; set; } = null!;
 
-        public string Name { get; set; } = null!;
+    public decimal Price { get; set; }
 
-        public decimal? Price { get; set; }
+    public string Image { get; set; } = null!;
 
-        public string? ManagerId { get; set; }
+    public int ManagerId { get; set; }
 
-        public virtual ICollection<Design> Designs { get; set; } = new List<Design>();
+    public virtual ICollection<Design> Designs { get; set; } = new List<Design>();
 
-        public virtual AppUser? Manager { get; set; }
-    }
+    public virtual Users Manager { get; set; } = null!;
 }
-

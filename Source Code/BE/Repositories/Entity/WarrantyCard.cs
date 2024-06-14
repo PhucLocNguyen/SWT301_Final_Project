@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Repositories
+namespace Repositories.Entity;
+
+public partial class WarrantyCard
 {
+    public int WarrantyCardId { get; set; }
 
-    public partial class WarrantyCard
-    {
-        public int WarrantyCardId { get; set; }
+    public string Title { get; set; } = null!;
 
-        public string Title { get; set; } = null!;
+    public string? Description { get; set; }
 
-        public string? Description { get; set; }
-
-        public virtual ICollection<Have> Haves { get; set; } = new List<Have>();
-    }
-
+    public virtual ICollection<Have> Haves { get; set; } = new List<Have>();
 }

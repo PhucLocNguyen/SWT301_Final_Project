@@ -9,6 +9,6 @@ namespace Repositories.Token
 {
     public interface IToken
     {
-        public string CreateToken(AppUser user);
+        public Task<string> CreateToken(Users user);
     }
 }

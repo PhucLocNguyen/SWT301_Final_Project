@@ -7,6 +7,8 @@ using Microsoft.OpenApi.Models;
 using Repositories;
 using Repositories.Entity;
 using Repositories.Token;
+using Swashbuckle.AspNetCore.Filters;
+using System.Text;
 
 namespace API
 {
@@ -26,14 +28,42 @@ namespace API
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("MyDbContext"));
             });
-            builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+            /*builder.Services.AddIdentity<IdentityRole<>>*/
+            /*builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
                 options.Password.RequireUppercase = true;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequiredLength = 12;
-            }).AddEntityFrameworkStores<MyDbContext>();
+            }).AddEntityFrameworkStores<MyDbContext>();*/
+            builder.Services.AddSwaggerGen(option =>
+            {
+                option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
+                option.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                });
+                option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+                option.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "https";
@@ -49,36 +79,12 @@ namespace API
                     ValidIssuer = builder.Configuration["JWT:Issuer"],
                     ValidateAudience = true,
                     ValidAudience = builder.Configuration["JWT:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"]))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"]))
                 };
             });
-            builder.Services.AddSwaggerGen(option =>
-            {
-                option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
-                option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = "Please enter a valid token",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.Http,
-                    BearerFormat = "JWT",
-                    Scheme = "Bearer"
-                });
-                option.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type=ReferenceType.SecurityScheme,
-                    Id="Bearer"
-                }
-            },
-            new string[]{}
-        }
-    });
-            });
+
+            //builder.Services.AddAuthentication().AddJwtBearer();
+            //builder.Services.AddAuthorization();
             builder.Services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
@@ -95,15 +101,15 @@ namespace API
                 app.UseSwaggerUI();
             }
 
-            app.UseCors(x => x
-                  .AllowAnyMethod()
-                  .AllowAnyHeader()
-                  .AllowCredentials()
-                   //.WithOrigins("https://localhost:44351))
-                   .SetIsOriginAllowed(origin => true));
-
             app.UseHttpsRedirection();
-            app.UseRouting();
+
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+                //.WithOrigins("https://localhost:44351))
+                .SetIsOriginAllowed(origin => true));
+
             app.UseAuthentication();
             app.UseAuthorization();
 

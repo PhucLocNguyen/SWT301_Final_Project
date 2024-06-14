@@ -1,17 +1,13 @@
-﻿using Repositories.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Repositories
+namespace Repositories.Entity;
+
+public partial class Role
 {
+    public int RoleId { get; set; }
 
-    public partial class Role
-    {
-        public int RoleId { get; set; }
+    public string Name { get; set; } = null!;
 
-        public string Name { get; set; } = null!;
-
-        public virtual ICollection<AppUser> Users { get; set; } = new List<AppUser>();
-    }
-
+    public virtual ICollection<Users> Users { get; set; } = new List<Users>();
 }

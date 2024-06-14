@@ -16,7 +16,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult SearchWarrantyCard()
         {
             return Ok(_unitOfWork.WarrantyCardRepository.Get());
         }

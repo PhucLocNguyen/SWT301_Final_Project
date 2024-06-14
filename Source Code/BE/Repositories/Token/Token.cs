@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Repositories.Entity;
 using System;
@@ -21,30 +22,36 @@ namespace Repositories.Token
             _config = config;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:SigningKey"]));
         }
-        public string CreateToken(AppUser user)
+
+
+        public async Task<string> CreateToken(Users user)
         {
-            var claims = new List<Claim>
+
+
+            var authClaims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.GivenName, user.UserName)
+                new Claim(ClaimTypes.NameIdentifier, user.UsersId.ToString()),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Name, user.Name),
+                new Claim(CustomeClaimType.Role, user.Role.Name),
             };
+            
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7),
-                SigningCredentials = creds,
-                Issuer = _config["JWT:Issuer"],
-                Audience = _config["JWT:Audience"]
-            };
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            return tokenHandler.WriteToken(token);
+            var tokenDescriptor = new JwtSecurityToken
+            ( _config["JWT:Issuer"],
+            _config["JWT:Audience"],
+            authClaims,
+            expires: DateTime.Now.AddHours(1),
+            signingCredentials: creds
+            );
+            return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
         }
+    }
+
+    public static class CustomeClaimType
+    {
+        public const string Role = "Role";
     }
 }

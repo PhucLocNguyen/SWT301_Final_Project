@@ -3,6 +3,7 @@ using API.Model.RequirementModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
+using Repositories.Entity;
 using System.Linq.Expressions;
 
 namespace API.Controllers
@@ -27,12 +28,10 @@ namespace API.Controllers
                 (string.IsNullOrEmpty(requestSearchRequirementModel.Status) || x.Status.Contains(requestSearchRequirementModel.Status)) &&
                 (string.IsNullOrEmpty(requestSearchRequirementModel.Size) || x.Size.Contains(requestSearchRequirementModel.Size)) &&
                 (x.DesignId == requestSearchRequirementModel.DesignId || requestSearchRequirementModel.DesignId == null) &&
-                x.ExpectedDelivery <= requestSearchRequirementModel.ToExpectedDelivery &&
-                (x.ExpectedDelivery >= requestSearchRequirementModel.FromExpectedDelivery || requestSearchRequirementModel.FromExpectedDelivery == null) && 
-                x.GoldPriceAtMoment >= requestSearchRequirementModel.FromGoldPriceAtMoment &&
-                (x.GoldPriceAtMoment <= requestSearchRequirementModel.ToGoldPriceAtMoment || requestSearchRequirementModel.ToGoldPriceAtMoment == null) &&
+                x.MaterialPriceAtMoment >= requestSearchRequirementModel.FromMaterialPriceAtMoment &&
+                (x.MaterialPriceAtMoment <= requestSearchRequirementModel.ToMaterialPriceAtMoment || requestSearchRequirementModel.ToMaterialPriceAtMoment == null) &&
                 x.StonePriceAtMoment >= requestSearchRequirementModel.FromStonePriceAtMoment &&
-                (x.StonePriceAtMoment <= requestSearchRequirementModel.ToStonePriceAtMoment || requestSearchRequirementModel.ToGoldPriceAtMoment == null) &&
+                (x.StonePriceAtMoment <= requestSearchRequirementModel.ToStonePriceAtMoment || requestSearchRequirementModel.ToStonePriceAtMoment == null) &&
                 x.MachiningFee >= requestSearchRequirementModel.FromMachiningFee &&
                 (x.MachiningFee <= requestSearchRequirementModel.ToMachiningFee || requestSearchRequirementModel.ToMachiningFee == null) && 
                 x.TotalMoney >= requestSearchRequirementModel.FromTotalMoney &&
@@ -78,7 +77,7 @@ namespace API.Controllers
             var Requirement = requestCreateRequirementModel.toRequirementEntity();
             _unitOfWork.RequirementRepository.Insert(Requirement);
             _unitOfWork.Save();
-            return Ok();
+            return Ok("Create successfully");
         }
 
         [HttpPut]
@@ -92,9 +91,9 @@ namespace API.Controllers
             existedRequirement.Status = requestCreateRequirementModel.Status;
             existedRequirement.ExpectedDelivery = requestCreateRequirementModel.ExpectedDelivery;
             existedRequirement.Size = requestCreateRequirementModel.Size;
-            existedRequirement.DesignId = requestCreateRequirementModel.DesignId;
+            existedRequirement.DesignId = (int)requestCreateRequirementModel.DesignId;
             existedRequirement.Design3D = requestCreateRequirementModel.Design3D;
-            existedRequirement.GoldPriceAtMoment = requestCreateRequirementModel.GoldPriceAtMoment;
+            existedRequirement.MaterialPriceAtMoment = requestCreateRequirementModel.MaterialPriceAtMoment;
             existedRequirement.StonePriceAtMoment = requestCreateRequirementModel.StonePriceAtMoment;
             existedRequirement.MachiningFee = requestCreateRequirementModel.MachiningFee;
             existedRequirement.TotalMoney = requestCreateRequirementModel.TotalMoney;
