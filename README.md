@@ -34,4 +34,4 @@ The system supports the following types of users:
 To install the Jewelry Production Order System, follow these steps:
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/SWT391_Final_Project.git
+   https://github.com/PhucLocNguyen/SWT301_Final_Project.git
