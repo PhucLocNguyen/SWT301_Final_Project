@@ -1,4 +1,4 @@
-# SWT391_Final_Project
+# SWT301_Final_Project
 
 This repository contains the Jewelry Production Order System for the SWT301-NET1806 course in SUMMER2024. The Jewelry Production Ordering System is a new software solution designed to replace the current manual process of ordering and picking up jewelry directly at shops. The system is intended to evolve through multiple releases, eventually integrating Internet ordering services with online payment capabilities.
 
