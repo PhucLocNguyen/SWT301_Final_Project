@@ -1,11 +1,12 @@
 import { lazy } from "react"
-// import Home from "../component/home/Home"
-// import Navbar from "../component/nav/Navbar"
-// import Category from "../component/category/Category"
-const Home = lazy(() => import('../component/home/Home'))
-const Navbar = lazy(() => import('../component/nav/Navbar'))
-const Design = lazy(() => import('../component/category/Category'))
-import ListAll from "../component/category/ListAll"
+
+const Home = lazy(() => import('../component/home/Home'));
+const Design = lazy(() => import('../component/category/Category'));
+// const BlogList = lazy(() => import('../component/blog_list/blogList'));
+const ListAll = lazy(() => import('../component/category/ListAll'));
+ const DesignInfo = lazy(() => import('../component/order/DesignInfo'));
+// const Blog = lazy(() => import('../component/blog/Blog'));
+const RequirementOrderSection = lazy(() => import('../component/requirements/Create/RequirementOrderSection'));
 
 
 const publicRoutes = [
@@ -21,8 +22,25 @@ const publicRoutes = [
          { path: 'earring', component: ListAll },
          { path: 'bracelet', component: ListAll },
          { path: 'necklace', component: ListAll },
-         { path: 'ring', component: ListAll },
+         { path: 'ring', component: ListAll }
       ]
+
+   },
+   {
+      path: '/design/:id',
+      component: DesignInfo
+   },
+   // {
+   //    path: '/blog',
+   //    component: BlogList
+   // },
+   // {
+   //    path: '/blog/:id',
+   //    component: Blog
+   // },
+   {
+      path: '/design/create-requirement/:id',
+      component: RequirementOrderSection
    }
 ]
 

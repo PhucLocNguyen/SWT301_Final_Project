@@ -10,3 +10,9 @@
   transform: scale(1.6);
   opacity: 0;
 }
+.iconNotification svg{
+display: flex;
+justify-content: center;
+width: 100%!important;
+height: 300px!important;
+}

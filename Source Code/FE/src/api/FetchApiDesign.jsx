@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react'
 import api from './instance.jsx'
 
 const fetchApiDesign = async () => {
 
    try {
 
-      let design = await api.get('/design');
+      let design = await api.get('/Design')
 
       console.log("Fetch API Design log")
 
@@ -16,4 +15,17 @@ const fetchApiDesign = async () => {
 
 }
 
-export { fetchApiDesign }
+const fetchApiDesignById = async (id) => {
+
+   try {
+
+      let response = await api.get(`/Design/${id}`)
+         const dataGetById = response.data;
+         return dataGetById;
+    
+   } catch (error) {
+      console.log(error)
+   }
+}
+
+export { fetchApiDesign, fetchApiDesignById }

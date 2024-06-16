@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react';
+import { useParams,useLocation } from 'react-router-dom';
 import Button from '@mui/material/Button'
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { fetchApiDesignById } from '../../api/FetchApiDesign';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import DesignImage from '../../assets/designInfo/jewelry.png'
 import Arrow from '../../assets/designInfo/arrow.svg'
@@ -15,6 +18,20 @@ const CustomButton = styled(Button)({
 })
 
 function DesignInfo() {
+   const [designInfo, setDesignInfo] = useState({});
+   const { id } = useParams()
+
+   useEffect(() => {
+      const fetchAPI = async () => {
+         const respone = await fetchApiDesignById(id)
+         setDesignInfo(respone)
+      }
+
+      fetchAPI()
+   }, [])
+
+   console.log(designInfo)
+
    return (
       <>
          <div className="py-[8.125rem]">
@@ -22,12 +39,12 @@ function DesignInfo() {
                <div className="flex w-[100%] gap-x-[3.5rem]">
                   <div className='max-w-[40%]  rounded-lg'>
                      {/* Hinh anh */}
-                     <img src={DesignImage} className='max-w-[100%] w-[30rem] max-h-[30rem] h-[30rem] object-cover rounded-lg' />
+                     <img src={designInfo.image} className='max-w-[100%] w-[30rem] max-h-[30rem] h-[30rem] object-cover rounded-lg' />
                   </div>
                   <div className='flex flex-col items-start gap-y-[1.5rem] max-w-[55%]'>
                      {/* Ten thiet ke */}
                      <h1 className='text-[#000] mt-[0.7rem] text-[4rem] font-normal leading-[4.5rem] '>
-                        Solitaire Diamond Ring
+                        {designInfo.designName}
                      </h1>
                      {/* Description Section */}
                      <div className='flex flex-col gap-y-[0.5rem] min-h-[9.3rem]'>
@@ -55,7 +72,7 @@ function DesignInfo() {
                      </div>
 
                      {/* Button custom */}
-                     <Link to='' style={{ width: '100%' }}>
+                     <Link to={`/design/create-requirement/${id}`} style={{ width: '100%' }}>
                         <CustomButton variant='contained' sx={{ color: '#fff', bgcolor: '#000', letterSpacing: 4, padding: '0.7rem 2.375rem', fontSiz: '1rem', fontWeight: 400, lineHeight: '1.5rem', width: '100%' }} >
                            CUSTOM DESIGN
                         </CustomButton>
