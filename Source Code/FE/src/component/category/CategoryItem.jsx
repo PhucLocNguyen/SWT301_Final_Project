@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Arrow from '../../assets/categoryItem/arrow.svg'
+
 function CategoryItem({design = {}}) {
 
    return (
       <>
          <div className="text-[1rem] leading-[1.3em] font-normal">
-            <a className="max-w-[100%] inline-block cursor-pointer">
+            <Link to={`/design/${design.designId}`} className="max-w-[100%] inline-block cursor-pointer">
                <div className='overflow-hidden mb-[0.94rem] rounded-[10px]'>
                   <motion.img whileHover={{ scale: 1.1 }} transition={{ duration: .7 }} className='rounded-[10px] inline-block max-w-[100%]' src={design.image} />
                </div>
@@ -19,7 +21,7 @@ function CategoryItem({design = {}}) {
                      </div>
                   </div>
                </div>
-            </a>
+            </Link>
          </div>
       </>
    )

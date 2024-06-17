@@ -1,13 +1,17 @@
 import { Button, SvgIcon, Icon } from '@mui/material';
+import { jwtDecode } from 'jwt-decode';
 import InputPassword from './InputPassword';
 import InputText from './InputText';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from "framer-motion";
 import axios from 'axios';
 import { LoginApi } from '../../api/ApiLogin';
+import useAuth from '../../hooks/useAuth.jsx'
 
 
 function Login() {
+    const { setAuth } = useAuth();
+
     let [isToggle, setIsToggle] = useState(false);
     const [dataSource, setDataSource] = useState([]);
     
@@ -50,6 +54,8 @@ function Login() {
             pathReq="login";
         }
        var loginApi = LoginApi(pathReq,listState, axiosConfig);
+       const { role , accessToken } = loginApi
+        setAuth( {role, accessToken} )
     }
    
    
