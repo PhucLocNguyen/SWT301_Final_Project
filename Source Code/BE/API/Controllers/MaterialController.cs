@@ -60,7 +60,7 @@ namespace API.Controllers
 
             if (Material == null)
             {
-                return NotFound();
+                return NotFound("Maretrial is not existed");
             }
 
             return Ok(Material.toMaterialDTO());
@@ -81,7 +81,7 @@ namespace API.Controllers
             var existedMaterial = _unitOfWork.MaterialRepository.GetByID(id);
             if (existedMaterial == null)
             {
-                return NotFound();
+                return NotFound("Maretrial is not existed");
             }
             existedMaterial.Name = requestCreateMaterialModel.Name;
             existedMaterial.Price = requestCreateMaterialModel.Price;
@@ -97,7 +97,7 @@ namespace API.Controllers
             var existedMaterial = _unitOfWork.MaterialRepository.GetByID(id);
             if (existedMaterial == null)
             {
-                return NotFound();
+                return NotFound("Maretrial is not existed");
             }
             _unitOfWork.MaterialRepository.Delete(existedMaterial);
             try

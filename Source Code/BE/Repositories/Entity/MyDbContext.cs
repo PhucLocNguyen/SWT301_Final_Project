@@ -256,9 +256,9 @@ namespace Repositories
 
             modelBuilder.Entity<UserRequirement>(entity =>
             {
-                entity.HasKey(e => new { e.UsersId, e.RequirementId }).HasName("PK__UsersReq__EC83D35F40A575F1");
+                entity.HasKey(e => new { e.UsersId, e.RequirementId }).HasName("PK__UsersReq__6496A1A5D8BA4CC5");
 
-                entity.ToTable("UsersRequirement");
+                entity.ToTable("UsersRequirements");
 
                 entity.Property(e => e.UsersId).HasColumnName("UsersID");
                 entity.Property(e => e.RequirementId).HasColumnName("RequirementID");
@@ -266,19 +266,17 @@ namespace Repositories
                 entity.HasOne(d => d.Requirement).WithMany(p => p.UserRequirements)
                     .HasForeignKey(d => d.RequirementId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__UsersRequ__Requi__52593CB8");
+                    .HasConstraintName("FK__UsersRequ__Requi__5441852A");
 
                 entity.HasOne(d => d.User).WithMany(p => p.UserRequirements)
                     .HasForeignKey(d => d.UsersId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__UsersRequ__Users__5165187F");
+                    .HasConstraintName("FK__UsersRequ__Users__534D60F1");
             });
 
             modelBuilder.Entity<Users>(entity =>
             {
                 entity.HasKey(e => e.UsersId).HasName("PK__Users__A349B0427BFFDCB6");
-
-                entity.HasIndex(e => e.Username, "UQ__Users__536C85E463DC7634").IsUnique();
 
                 entity.HasIndex(e => e.Email, "UQ__Users__A9D1053481ED8284").IsUnique();
 

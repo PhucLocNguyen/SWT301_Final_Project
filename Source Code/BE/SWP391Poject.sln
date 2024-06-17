@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{C94754F6-301F-435C-8B6E-4D1501053988}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUserCase", "TestUserCase\TestUserCase.csproj", "{0515ECDB-F746-4464-BCCE-F6CA4AB33058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUseCase", "TestUserCase\TestUseCase.csproj", "{0515ECDB-F746-4464-BCCE-F6CA4AB33058}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

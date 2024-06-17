@@ -61,7 +61,7 @@ namespace API.Controllers
             var Blog = _unitOfWork.BlogRepository.GetByID(id, m => m.Manager);
             if (Blog == null)
             {
-                return NotFound();
+                return NotFound("Blog is not existed");
             }
 
             return Ok(Blog.toBlogDTO());
@@ -82,7 +82,7 @@ namespace API.Controllers
             var existedBlog = _unitOfWork.BlogRepository.GetByID(id);
             if (existedBlog == null)
             {
-                return NotFound();
+                return NotFound("Blog is not existed");
             }
             existedBlog.Description = requestCreateBlogModel.Description;
             existedBlog.ManagerId = requestCreateBlogModel.ManagerId;
@@ -99,7 +99,7 @@ namespace API.Controllers
             var existedBlog = _unitOfWork.BlogRepository.GetByID(id);
             if (existedBlog==null)
             {
-                return NotFound();
+                return NotFound("Blog is not existed");
             }
             _unitOfWork.BlogRepository.Delete(existedBlog);
             _unitOfWork.Save();

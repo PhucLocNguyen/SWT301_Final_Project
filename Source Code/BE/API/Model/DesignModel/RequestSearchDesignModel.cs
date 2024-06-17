@@ -32,6 +32,7 @@
     {
         public SortDesignByEnum sortDesignBy { get; set; }
         public SortDesignTypeEnum sortDesignType { get; set; }
+        public IsParent isParent { get; set; }
     }
 
     public enum SortDesignByEnum
@@ -49,5 +50,10 @@
     {
         Ascending = 1,
         Descending = 2,
+    }
+
+    public enum IsParent
+    {
+        IsParent = 1
     }
 }

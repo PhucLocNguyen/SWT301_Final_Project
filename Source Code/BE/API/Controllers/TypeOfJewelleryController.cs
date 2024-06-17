@@ -53,7 +53,7 @@ namespace API.Controllers
             var TypeOfJewellery = _unitOfWork.TypeOfJewellryRepository.GetByID(id,p=>p.Designs);
             if (TypeOfJewellery == null)
             {
-                return NotFound();
+                return NotFound("Type of jewellery is not existed");
             }
 
             return Ok(TypeOfJewellery.toTypeOfJewelleryDTO());
@@ -78,7 +78,7 @@ namespace API.Controllers
             var existedTypeOfJewellery = _unitOfWork.TypeOfJewellryRepository.GetByID(id);
             if (existedTypeOfJewellery == null)
             {
-                return NotFound();
+                return NotFound("Type of jewellery is not existed");
             }
             existedTypeOfJewellery.Name = requestTypeOfJewelleryModel.Name;
             _unitOfWork.TypeOfJewellryRepository.Update(existedTypeOfJewellery);
@@ -92,7 +92,7 @@ namespace API.Controllers
             var existedTypeOfJewellery = _unitOfWork.TypeOfJewellryRepository.GetByID(id);
             if (existedTypeOfJewellery == null)
             {
-                return NotFound();
+                return NotFound("Type of jewellery is not existed");
             }
             _unitOfWork.TypeOfJewellryRepository.Delete(existedTypeOfJewellery);
             try

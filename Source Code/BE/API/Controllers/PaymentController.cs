@@ -59,7 +59,7 @@ namespace API.Controllers
 
             if (Payment == null)
             {
-                return NotFound();
+                return NotFound("Payment is not existed");
             }
 
             return Ok(Payment);
@@ -81,7 +81,7 @@ namespace API.Controllers
 
             if (ExistPayment == null)
             {
-                return NotFound();
+                return NotFound("Payment is not existed");
             }
 
             ExistPayment.Amount = (decimal)requestCreatePaymentModel.Amount;
@@ -101,7 +101,7 @@ namespace API.Controllers
 
             if (ExistPayment == null)
             {
-                return NotFound();
+                return NotFound("Payment is not existed");
             }
 
             _unitOfWork.PaymentRepository.Delete(ExistPayment);

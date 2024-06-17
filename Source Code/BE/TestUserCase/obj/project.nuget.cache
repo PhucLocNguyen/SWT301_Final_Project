@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IarueTb7l2LKTsSf2gNvClvDWm72/KtvvFoPU/2tzUwpvKC93wpatL+IOroHQHuoC9O671wsWVevGMmTiTe46Q==",
+  "dgSpecHash": "Ub48dp6RlK8MS3pcObEbiu8MgqHr0MdxbItnbKhXNCPHO5wLFB7fI9iuWyE6yngRtuuXJ+jm5QK//0rp1vrlvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\TestUserCase\\TestUserCase.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\TestUserCase\\TestUseCase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

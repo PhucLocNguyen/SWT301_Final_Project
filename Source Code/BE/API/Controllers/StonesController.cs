@@ -59,7 +59,7 @@ namespace API.Controllers
             var Stones = _unitOfWork.StoneRepository.GetByID(id,p=>p.Designs);
             if(Stones == null)
             {
-                return NotFound();
+                return NotFound("Stones is not existed");
             }
             return Ok(Stones.toStonesDTO());
         }
@@ -77,7 +77,7 @@ namespace API.Controllers
             var existedStonesUpdate = _unitOfWork.StoneRepository.GetByID(id);
             if (existedStonesUpdate == null)
             {
-                return NotFound();
+                return NotFound("Stones is not existed");
             }
             existedStonesUpdate.Kind = requestCreateStonesModel.Kind;
             existedStonesUpdate.Price = requestCreateStonesModel.Price;
@@ -93,7 +93,7 @@ namespace API.Controllers
             var existedStonesUpdate = _unitOfWork.StoneRepository.GetByID(id);
             if(existedStonesUpdate == null)
             { 
-                return NotFound();
+                return NotFound("Stones is not existed");
             }
             _unitOfWork.StoneRepository.Delete(existedStonesUpdate);
             try

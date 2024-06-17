@@ -4650,9 +4650,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\TestUserCase\\TestUserCase.csproj",
-      "projectName": "TestUserCase",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\TestUserCase\\TestUserCase.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\TestUserCase\\TestUseCase.csproj",
+      "projectName": "TestUseCase",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\TestUserCase\\TestUseCase.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\TestUserCase\\obj\\",
       "projectStyle": "PackageReference",

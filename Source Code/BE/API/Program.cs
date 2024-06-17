@@ -79,7 +79,8 @@ namespace API
                     ValidIssuer = builder.Configuration["JWT:Issuer"],
                     ValidateAudience = true,
                     ValidAudience = builder.Configuration["JWT:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"]))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])),
+                    RoleClaimType = CustomeClaimType.Role,
                 };
             });
 

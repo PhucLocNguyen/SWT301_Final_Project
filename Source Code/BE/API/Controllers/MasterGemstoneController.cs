@@ -67,7 +67,7 @@ namespace API.Controllers
             var MasterGemstone = _unitOfWork.MasterGemstoneRepository.GetByID(id, p => p.Designs);
             if (MasterGemstone == null)
             {
-                return NotFound();
+                return NotFound("MasterGemstone is not existed");
             }
             return Ok(MasterGemstone.toMasterGemstonesDTO());
         }
@@ -88,7 +88,7 @@ namespace API.Controllers
             var ExistedMasterGemstone = _unitOfWork.MasterGemstoneRepository.GetByID(id);
             if (ExistedMasterGemstone == null)
             {
-                return NotFound();
+                return NotFound("MasterGemstone is not existed");
             }
 
             ExistedMasterGemstone.Kind = requestCreateMasterGemstone.Kind;
