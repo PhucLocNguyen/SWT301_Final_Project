@@ -37,7 +37,7 @@ To install the Jewelry Production Order System, follow these steps:
    https://github.com/PhucLocNguyen/SWT301_Final_Project.git
 ## SPRINT 1: SET UP
 | Usecase | Student    |
-| --------- | --- | ----------- |
+| --------- | --- |
 | Sign in  | Nguyễn Bá Đạt  |
 | Sign up  | Nguyễn Bá Đạt  |
 | Create Account  | Nguyễn Đức Hùng  |
