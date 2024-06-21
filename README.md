@@ -38,8 +38,6 @@ To install the Jewelry Production Order System, follow these steps:
 ## SPRINT 1: SET UP
 | Usecase | Student    |
 | --------- | --- |
-| Sign in  | Nguyễn Bá Đạt  |
-| Sign up  | Nguyễn Bá Đạt  |
 | Create Account  | Nguyễn Đức Hùng  |
 | Create Blog  | Nguyễn Đức Hùng  |
 | Create Stone  | Hà Gia Khánh  |
@@ -55,6 +53,7 @@ To install the Jewelry Production Order System, follow these steps:
 | Create Master Gemstones | Nguyễn Bá Đạt  |
 | Update Master Gemstones  | Nguyễn Bá Đạt  |
 | Delete Master Gemstones  | Nguyễn Bá Đạt  |
-
+| Sign in  | Nguyễn Bá Đạt  |
+| Sign up  | Nguyễn Bá Đạt  |
 
 
