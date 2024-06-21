@@ -35,8 +35,8 @@ To install the Jewelry Production Order System, follow these steps:
 1. Clone the repository:
    ```sh
    https://github.com/PhucLocNguyen/SWT301_Final_Project.git
-| SPRINT      | Usecase | Student    |
+| SPRINT 1: SET UP      | Usecase | Student    |
 | --------- | --- | ----------- |
-| SET UP  | Sign in  | California  |
-| SET UP  | Sign up  | California  |
+|   | Sign in  | California  |
+|   | Sign up  | California  |
 
