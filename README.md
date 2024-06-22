@@ -38,22 +38,22 @@ To install the Jewelry Production Order System, follow these steps:
 ## SPRINT 1: SET UP
 | Usecase | Student    |
 | --------- | --- |
-| Create Account  | Nguyễn Đức Hùng  |
-| Create Blog  | Nguyễn Đức Hùng  |
-| Create Stone  | Hà Gia Khánh  |
-| Update Stone  | Hà Gia Khánh  |
-| Delete Stone  | Hà Gia Khánh  |
-| Create Material  | Nguyễn Phúc Lộc  |
-| Update Material  | Nguyễn Phúc Lộc  |
-| Delete Material  | Nguyễn Phúc Lộc  |
-| Create Types of jewellry  | Nguyễn Phúc Lộc  |
-| Update Types of jewellry  | Nguyễn Phúc Lộc  |
-| Delete Types of jewellry  | Nguyễn Phúc Lộc  |
-| Edit profile  | Nguyễn Bá Đạt  |
-| Create Master Gemstones | Nguyễn Bá Đạt  |
-| Update Master Gemstones  | Nguyễn Bá Đạt  |
-| Delete Master Gemstones  | Nguyễn Bá Đạt  |
-| Sign in  | Nguyễn Bá Đạt  |
-| Sign up  | Nguyễn Bá Đạt  |
+| UC19 - Create Account  | Nguyễn Đức Hùng  |
+| UC28 - Create Blog  | Nguyễn Đức Hùng  |
+| UC34 - Create Stone  | Hà Gia Khánh  |
+| UC35 - Update Stone  | Hà Gia Khánh  |
+| UC36 - Delete Stone  | Hà Gia Khánh  |
+| UC31 - Create Material  | Nguyễn Phúc Lộc  |
+| UC32 - Update Material  | Nguyễn Phúc Lộc  |
+| UC33 - Delete Material  | Nguyễn Phúc Lộc  |
+| UC40 - Create Types of jewellry  | Nguyễn Phúc Lộc  |
+| UC41 - Update Types of jewellry  | Nguyễn Phúc Lộc  |
+| UC42 - Delete Types of jewellry  | Nguyễn Phúc Lộc  |
+| UC01 - Sign in  | Nguyễn Bá Đạt  |
+| UC02 - Sign up  | Nguyễn Bá Đạt  |
+| UC18 - Edit profile  | Nguyễn Bá Đạt  |
+| UC37 - Create Master Gemstones | Nguyễn Bá Đạt  |
+| UC38 - Update Master Gemstones  | Nguyễn Bá Đạt  |
+| UC39 - Delete Master Gemstones  | Nguyễn Bá Đạt  |
 
 
