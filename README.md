@@ -35,3 +35,25 @@ To install the Jewelry Production Order System, follow these steps:
 1. Clone the repository:
    ```sh
    https://github.com/PhucLocNguyen/SWT301_Final_Project.git
+## SPRINT 1: SET UP
+| Usecase | Student    |
+| --------- | --- |
+| UC19 - Create Account  | Nguyễn Đức Hùng  |
+| UC28 - Create Blog  | Nguyễn Đức Hùng  |
+| UC34 - Create Stone  | Hà Gia Khánh  |
+| UC35 - Update Stone  | Hà Gia Khánh  |
+| UC36 - Delete Stone  | Hà Gia Khánh  |
+| UC31 - Create Material  | Nguyễn Phúc Lộc  |
+| UC32 - Update Material  | Nguyễn Phúc Lộc  |
+| UC33 - Delete Material  | Nguyễn Phúc Lộc  |
+| UC40 - Create Types of jewellry  | Nguyễn Phúc Lộc  |
+| UC41 - Update Types of jewellry  | Nguyễn Phúc Lộc  |
+| UC42 - Delete Types of jewellry  | Nguyễn Phúc Lộc  |
+| UC01 - Sign in  | Nguyễn Bá Đạt  |
+| UC02 - Sign up  | Nguyễn Bá Đạt  |
+| UC18 - Edit profile  | Nguyễn Bá Đạt  |
+| UC37 - Create Master Gemstones | Nguyễn Bá Đạt  |
+| UC38 - Update Master Gemstones  | Nguyễn Bá Đạt  |
+| UC39 - Delete Master Gemstones  | Nguyễn Bá Đạt  |
+
+
