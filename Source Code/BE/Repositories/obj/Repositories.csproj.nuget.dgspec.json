@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj": {}
+    "D:\\HocTap\\AspDotNet_Practice\\SwpWorking\\ChatSystem\\BE\\Repositories\\Repositories.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj": {
+    "D:\\HocTap\\AspDotNet_Practice\\SwpWorking\\ChatSystem\\BE\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "D:\\HocTap\\AspDotNet_Practice\\SwpWorking\\ChatSystem\\BE\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\obj\\",
+        "projectPath": "D:\\HocTap\\AspDotNet_Practice\\SwpWorking\\ChatSystem\\BE\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\HocTap\\AspDotNet_Practice\\SwpWorking\\ChatSystem\\BE\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

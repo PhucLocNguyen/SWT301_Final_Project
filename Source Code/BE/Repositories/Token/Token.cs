@@ -25,7 +25,7 @@ namespace Repositories.Token
 
             var authClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, user.UsersId.ToString()),
+                new Claim(CustomeClaimType.UserId, user.UsersId.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Name, user.Name),
                 new Claim(CustomeClaimType.Role, user.Role.Name),
@@ -48,5 +48,6 @@ namespace Repositories.Token
     public static class CustomeClaimType
     {
         public const string Role = "Role";
+        public const string UserId = "UserId";
     }
 }

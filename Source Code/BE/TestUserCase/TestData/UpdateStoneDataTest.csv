@@ -1,0 +1,7 @@
+﻿StoneId,Kind,Size,Quantity,Price,ExpectedValue
+30,CZ,2,20,1.9,Stone not found
+9,CZ,2,36,1.9,Stone with this size and quantity already exists
+14,CZ,3,40,2.3,Update successfully
+143,CZ,3,40,2.3,Stone not found
+142,CM,3,40,2.3,Update successfully
+142,CM,3,40,2.5,Update successfully

@@ -28,8 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj"
+              "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj"
+              },
+              "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj"
               }
             }
           }
@@ -117,12 +120,12 @@
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
-        "projectName": "Repositories",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj",
+        "projectName": "SWP391Project.Repositories",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
@@ -219,6 +222,84 @@
         }
       }
     },
+    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj",
+        "projectName": "SWP391Project.Services",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\TestUserCase\\TestUseCase.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -246,8 +327,8 @@
               "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\API\\API.csproj": {
                 "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\API\\API.csproj"
               },
-              "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj"
+              "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj": {
+                "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj"
               }
             }
           }

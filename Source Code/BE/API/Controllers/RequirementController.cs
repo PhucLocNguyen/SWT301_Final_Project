@@ -30,6 +30,8 @@ namespace API.Controllers
                 (x.DesignId == requestSearchRequirementModel.DesignId || requestSearchRequirementModel.DesignId == null) &&
                 x.MaterialPriceAtMoment >= requestSearchRequirementModel.FromMaterialPriceAtMoment &&
                 (x.MaterialPriceAtMoment <= requestSearchRequirementModel.ToMaterialPriceAtMoment || requestSearchRequirementModel.ToMaterialPriceAtMoment == null) &&
+                x.WeightOfMaterial >= requestSearchRequirementModel.FromWeightOfMaterial &&
+                (x.WeightOfMaterial <= requestSearchRequirementModel.ToWeightOfMaterial || requestSearchRequirementModel.ToWeightOfMaterial == null)&&
                 x.StonePriceAtMoment >= requestSearchRequirementModel.FromStonePriceAtMoment &&
                 (x.StonePriceAtMoment <= requestSearchRequirementModel.ToStonePriceAtMoment || requestSearchRequirementModel.ToStonePriceAtMoment == null) &&
                 x.MachiningFee >= requestSearchRequirementModel.FromMachiningFee &&
@@ -77,7 +79,7 @@ namespace API.Controllers
             var Requirement = requestCreateRequirementModel.toRequirementEntity();
             _unitOfWork.RequirementRepository.Insert(Requirement);
             _unitOfWork.Save();
-            return Ok("Create successfully");
+            return Ok(Requirement);
         }
 
         [HttpPut]
@@ -89,10 +91,11 @@ namespace API.Controllers
                 return NotFound("Requiremnet is not existed");
             }
             existedRequirement.Status = requestCreateRequirementModel.Status;
-            existedRequirement.ExpectedDelivery = requestCreateRequirementModel.ExpectedDelivery;
+            existedRequirement.ExpectedDelivery = DateOnly.FromDateTime((DateTime)requestCreateRequirementModel.ExpectedDelivery);
             existedRequirement.Size = requestCreateRequirementModel.Size;
             existedRequirement.DesignId = (int)requestCreateRequirementModel.DesignId;
             existedRequirement.Design3D = requestCreateRequirementModel.Design3D;
+            existedRequirement.WeightOfMaterial = requestCreateRequirementModel.WeightOfMaterial;
             existedRequirement.MaterialPriceAtMoment = requestCreateRequirementModel.MaterialPriceAtMoment;
             existedRequirement.StonePriceAtMoment = requestCreateRequirementModel.StonePriceAtMoment;
             existedRequirement.MachiningFee = requestCreateRequirementModel.MachiningFee;
@@ -101,7 +104,7 @@ namespace API.Controllers
             existedRequirement.StaffNote = requestCreateRequirementModel.StaffNote;
             _unitOfWork.RequirementRepository.Update(existedRequirement);
             _unitOfWork.Save();
-            return Ok();
+            return Ok("Update Requirement successfully");
         }
 
         [HttpDelete]

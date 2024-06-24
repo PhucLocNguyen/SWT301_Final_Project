@@ -168,9 +168,7 @@ C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\runtimes\
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\API.dll
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
-C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\Repositories.dll
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\API.pdb
-C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\Repositories.pdb
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\obj\Debug\net8.0\TestUseCase.csproj.AssemblyReference.cache
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\obj\Debug\net8.0\TestUseCase.GeneratedMSBuildEditorConfig.editorconfig
@@ -185,3 +183,14 @@ C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\obj\Debug\net8.0\TestUseCa
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\obj\Debug\net8.0\ref\TestUseCase.dll
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\TestData\dataTestRegist.csv
 C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\TestData\dataTestMaterGemStone.csv
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\TestData\dataTestCreateMasterGemStone.csv
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\MailKit.dll
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\MimeKit.dll
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\SWP391Project.Repositories.dll
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\SWP391Project.Services.dll
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\SWP391Project.Repositories.pdb
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\SWP391Project.Services.pdb
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\TestData\dataTestUpdateMasterGemStone.csv
+C:\Users\Admin\source\repos\SWP391Poject\TestUserCase\bin\Debug\net8.0\TestData\dataTestDeleteMasterGemStone.csv

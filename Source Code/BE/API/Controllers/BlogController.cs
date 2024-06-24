@@ -22,8 +22,28 @@ namespace API.Controllers
         {
             _unitOfWork = unitOfWork;
         }
+
+        [HttpGet("GetTotalRecords")]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = RoleConst.Customer)]
+        public IActionResult SearchBlogRecords([FromQuery] RequestSearchBlogModel requestSearchBlogModel)
+        {
+            var sortBy = requestSearchBlogModel.SortContent != null ? requestSearchBlogModel.SortContent?.sortBlogBy.ToString() : null;
+            var sortType = requestSearchBlogModel.SortContent != null ? requestSearchBlogModel.SortContent?.sortBlogType.ToString() : null;
+            Expression<Func<Blog, bool>> filter = x =>
+                (string.IsNullOrEmpty(requestSearchBlogModel.Title) || x.Title.Contains(requestSearchBlogModel.Title)) &&
+                (x.ManagerId == requestSearchBlogModel.ManagerId || requestSearchBlogModel.ManagerId == null);
+            var totalRecords = _unitOfWork.BlogRepository.Count(filter);
+
+            var response = new
+            {
+                TotalRecords = totalRecords
+            };
+
+            return Ok(response);
+        }
+
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = RoleConst.Customer )]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = RoleConst.Customer )]
         public IActionResult SearchBlog([FromQuery] RequestSearchBlogModel requestSearchBlogModel) 
         {
             var sortBy = requestSearchBlogModel.SortContent!=null ? requestSearchBlogModel.SortContent?.sortBlogBy.ToString() : null;
@@ -70,6 +90,11 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult CreateBlog(RequestCreateBlogModel requestCreateBlogModel)
         {
+            var user = _unitOfWork.UserRepository.GetByID(requestCreateBlogModel.ManagerId, m=>m.Role);
+            if(user.Role.Name !=  RoleConst.Manager) 
+            {
+                return BadRequest("Manager Id is not valid");
+            }
             var Blog = requestCreateBlogModel.toBlogEntity();
             _unitOfWork.BlogRepository.Insert(Blog);
             _unitOfWork.Save();

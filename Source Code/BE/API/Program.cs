@@ -1,13 +1,18 @@
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Repositories;
+using Repositories.Email;
 using Repositories.Entity;
 using Repositories.Token;
 using Swashbuckle.AspNetCore.Filters;
+using SWP391Project.Services.ChatSystem;
+using SWP391Project.Services.ChatSystem.Hubs;
 using System.Text;
 
 namespace API
@@ -92,6 +97,13 @@ namespace API
             });
             builder.Services.AddTransient<UnitOfWork>();
             builder.Services.AddScoped<IToken, Token>();
+            builder.Services.AddScoped<IChatService, ChatService>();
+            builder.Services.AddScoped<IConversationService, ConversationService>();
+            builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("EmailSetting"));
+            builder.Services.AddTransient<IEmailService, EmailService>();
+            builder.Services.AddMemoryCache();
+
+            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
@@ -101,7 +113,7 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.MapHub<ChatHub>("/Chat");
             app.UseHttpsRedirection();
 
             app.UseCors(x => x
@@ -109,7 +121,8 @@ namespace API
                 .AllowAnyHeader()
                 .AllowCredentials()
                 //.WithOrigins("https://localhost:44351))
-                .SetIsOriginAllowed(origin => true));
+                .SetIsOriginAllowed(origin => 
+                true));
 
             app.UseAuthentication();
             app.UseAuthorization();

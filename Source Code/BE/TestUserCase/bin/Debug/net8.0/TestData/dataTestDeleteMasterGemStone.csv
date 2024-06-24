@@ -1,0 +1,4 @@
+MasterGemstoneId,ExpectedValue
+1,Cannot delete this item because it is referenced by another entity
+33,MasterGemstone is not existed
+34,Delete Successfully

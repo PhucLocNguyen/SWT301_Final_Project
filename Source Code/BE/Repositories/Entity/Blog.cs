@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 namespace Repositories.Entity;
-
 public partial class Blog
 {
     public int BlogId { get; set; }

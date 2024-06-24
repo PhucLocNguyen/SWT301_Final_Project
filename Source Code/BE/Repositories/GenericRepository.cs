@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Repositories
-{
+namespace Repositories.Entity;
     public class GenericRepository<TEntity> where TEntity : class
     {
         internal MyDbContext context;
@@ -147,4 +146,3 @@ namespace Repositories
         }
 
     }
-}

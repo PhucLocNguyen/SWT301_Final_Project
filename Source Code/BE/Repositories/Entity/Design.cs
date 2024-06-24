@@ -15,8 +15,6 @@ public partial class Design
 
     public string? Description { get; set; }
 
-    public decimal WeightOfMaterial { get; set; }
-
     public int? StonesId { get; set; }
 
     public int? MasterGemstoneId { get; set; }

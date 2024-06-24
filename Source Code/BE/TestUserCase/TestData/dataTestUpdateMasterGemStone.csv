@@ -1,0 +1,4 @@
+MasterGemstoneId,Kind,Size,Price,Clarity,Cut,Weight,Shape,Image,ExpectedValue
+28,Diamond,5,890,VVS1,EX,0.2,Round,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpWHUscJPTURmqG413RW3IUoQFaWE_ypeDRQ&s,MasterGemstone is not existed
+34,Diamond,5,890,VVS1,EX,0.2,Round,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpWHUscJPTURmqG413RW3IUoQFaWE_ypeDRQ&s,"Kind, Size, Clarity, Cut, Shape, Price, Weight value of Update Master Gemstone is same with old value"
+34,Diamond,6,890,VVS1,EX,0.2,Round,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpWHUscJPTURmqG413RW3IUoQFaWE_ypeDRQ&s,Update Master Gemstone successfully

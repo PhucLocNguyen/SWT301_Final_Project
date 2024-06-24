@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
+using Repositories.Email;
 using Repositories.Entity;
 using Repositories.Token;
 using System.Linq.Expressions;
 using System.Net;
+using static Repositories.Email.EmailService;
 
 namespace API.Controllers
 {
@@ -20,45 +22,32 @@ namespace API.Controllers
     {
         private readonly UnitOfWork _unitOfWork;
         private readonly IToken _tokenService;
-        public UserController(UnitOfWork unitOfWork, IToken tokenService)
+        private readonly IEmailService _emailService;
+        public UserController(UnitOfWork unitOfWork, IToken tokenService, IEmailService emailService)
         {
             _unitOfWork = unitOfWork;
             _tokenService = tokenService;
+            _emailService = emailService;
         }
         [HttpPost("registerForCustomer")]
         public async Task<IActionResult> Register([FromBody] RequestRegisterAccount requestRegisterAccount)
         {
-            try
-            {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
+            
                 if (checkDuplicateUsername(requestRegisterAccount.Username))
                 {
                     return BadRequest("Username is existed");
+                }
+            var existUserHaveSameEmail = _unitOfWork.UserRepository.Get(filter: x => x.Email.Equals(requestRegisterAccount.Email));
+                if (existUserHaveSameEmail.Count() >0)
+                {
+                    return BadRequest("Email has already been registered");
                 }
                 if (!requestRegisterAccount.Password.Equals(requestRegisterAccount.PasswordConfirm))
                 {
                     return BadRequest("PasswordConfirm is not correct");
                 }
-                var roleEntity = _unitOfWork.RoleRepository.Get(filter: x => x.Name.Equals(RoleConst.Customer)).FirstOrDefault();
-                var registerAccount = requestRegisterAccount.toUserEntity(roleEntity);
-                _unitOfWork.UserRepository.Insert(registerAccount);
-                _unitOfWork.Save();
-                /*return Ok(registerAccount.toUserDTO());*/
-                return Ok("Regist Successfully");
-            }
-            catch (DbUpdateException ex)
-            {
-                if (ex.InnerException is SqlException sqlException && sqlException.Number == 2627)
-                {
-                    return Conflict("Email has already been registered");
-                }
-                else
-                {
-                    return Problem("Something appear when registing", statusCode: 500);
-                }
-            }
-            
+                _emailService.SaveInCache(requestRegisterAccount);
+                return Ok("Please check email to verify your email");
         }
 
         [HttpPost("registerForAdmin")]
@@ -201,7 +190,29 @@ namespace API.Controllers
             }
         }
 
-        private bool checkDuplicateUsername(string username)
+        [HttpPost("VerifyEmail")]
+        public async Task<IActionResult> SendEmail([FromBody] string VerifyCodeFromUser)
+        {
+
+            try
+            {
+                var result = _emailService.VerifyCode(VerifyCodeFromUser);
+
+               
+                return result switch
+                {
+                    VerifyResult.Success => Ok("Regist Successfully"),
+                    VerifyResult.Expired => BadRequest("Verification code has expired. Please sign up again"),
+                    VerifyResult.Invalid => BadRequest("Invalid verification code. Please try again"),
+                };
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+            private bool checkDuplicateUsername(string username)
         {
             bool check = false;
             var existedAccount = _unitOfWork.UserRepository.Get();

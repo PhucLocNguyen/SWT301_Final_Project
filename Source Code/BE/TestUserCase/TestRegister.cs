@@ -13,6 +13,8 @@ using static TestUseCase.TestLoginForStaff;
 using System.Globalization;
 using API.Model.UserModel;
 using Microsoft.AspNetCore.Mvc;
+using Repositories.Entity;
+using Repositories.Email;
 
 namespace TestUseCase
 {
@@ -23,6 +25,7 @@ namespace TestUseCase
         private Mock<UnitOfWork> _mockUnitOfWork;
         private Mock<IToken> _mockTokenService;
         private MyDbContext _dbContext;
+        private Mock<IEmailService> _emailService;
 
         [SetUp]
         public void Setup()
@@ -34,9 +37,10 @@ namespace TestUseCase
 
             _mockTokenService = new Mock<IToken>();
 
+            _emailService = new Mock<IEmailService> ();
             // Setup mock behaviors here
 
-            _controller = new UserController(_mockUnitOfWork.Object, _mockTokenService.Object);
+            _controller = new UserController(_mockUnitOfWork.Object, _mockTokenService.Object, _emailService.Object);
         }
 
         public class RegisterTest
@@ -81,10 +85,6 @@ namespace TestUseCase
 
             // Act
             IActionResult actionResult = await _controller.Register(registerAccount);
-
-           /* await Console.Out.WriteLineAsync(loginDTO.Username);
-            await Console.Out.WriteLineAsync(loginDTO.Password);
-            await Console.Out.WriteLineAsync(actionResult.ToString());*/
 
             // Assert
             if (actionResult is OkObjectResult)

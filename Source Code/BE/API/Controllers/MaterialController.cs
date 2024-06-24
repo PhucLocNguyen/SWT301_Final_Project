@@ -1,4 +1,6 @@
-﻿using API.Model.MaterialModel;
+﻿using API.Model.BlogModel;
+using API.Model.MaterialModel;
+using API.Model.UserModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -69,6 +71,11 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult CreateMaterial(RequestCreateMaterialModel requestCreateMaterialModel)
         {
+            var user = _unitOfWork.UserRepository.GetByID(requestCreateMaterialModel.ManagerId, m => m.Role);
+            if (user.Role.Name != RoleConst.Manager)
+            {
+                return BadRequest("Manager Id is not valid");
+            }
             var Material = requestCreateMaterialModel.toMaterialEntity();
             _unitOfWork.MaterialRepository.Insert(Material);
             _unitOfWork.Save();

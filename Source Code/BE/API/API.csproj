@@ -26,7 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Repositories\Repositories.csproj" />
+    <ProjectReference Include="..\Repositories\SWP391Project.Repositories.csproj" />
+    <ProjectReference Include="..\Services\SWP391Project.Services.csproj" />
   </ItemGroup>
 
 </Project>

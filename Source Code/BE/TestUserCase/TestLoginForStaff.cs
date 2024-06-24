@@ -10,6 +10,8 @@ using Moq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Repositories.Entity;
+using Repositories.Email;
 
 namespace TestUseCase
 {
@@ -21,9 +23,7 @@ namespace TestUseCase
         private Mock<UnitOfWork> _mockUnitOfWork;
         private Mock<IToken> _mockTokenService;
         private MyDbContext _dbContext;
-       /* private Token _token;
-        private IConfiguration _config;
-        private SymmetricSecurityKey _key;*/
+        private Mock<IEmailService> _emailService;
 
         [SetUp]
         public void Setup()
@@ -33,8 +33,8 @@ namespace TestUseCase
 
             _mockTokenService = new Mock<IToken>();
 
-
-            _controller = new UserController(_mockUnitOfWork.Object, _mockTokenService.Object);
+            _emailService = new Mock<IEmailService>();
+            _controller = new UserController(_mockUnitOfWork.Object, _mockTokenService.Object, _emailService.Object);
         }
 
         public class LoginTestData

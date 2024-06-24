@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zs+JFJYOY8T/H7IcWw3g3BrrHu6k9Pk3+oyZUpMfBf5L7QETezCWz44DZALOtxIrXgO6PrKNJNctkHAsmucQkw==",
+  "dgSpecHash": "AYXqmxf8ZA7e2KbeAlBzCSY0ENJA6DuIOzflY/xL5u8Z+S0saYZBgRZWii+MMyNO7I1WePbPuPVD+aArLKMWhA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

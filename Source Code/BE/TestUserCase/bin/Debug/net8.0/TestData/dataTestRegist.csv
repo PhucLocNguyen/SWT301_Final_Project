@@ -1,5 +1,5 @@
 Username,Email,Password,PasswordConfirm,ExpectedValue
 Dat,Badat@gmail.com,123,123,Username is existed
 Badat,Badat@gmail.com,123,1234,PasswordConfirm is not correct
-Badat,Dat@gmail.com,123,123,Email has already been registered
-Badat,Badat@gmail.com,123,123,Regist Successfully
+Badat,bmbadat2234@gmail.com,123,123,Email has already been registered
+Badat,nguyenbadat2234@gmail.com,123,123,Please check email to verify your email

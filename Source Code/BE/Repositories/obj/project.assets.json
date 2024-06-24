@@ -4283,9 +4283,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
-      "projectName": "Repositories",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\Repositories.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj",
+      "projectName": "SWP391Project.Repositories",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\obj\\",
       "projectStyle": "PackageReference",

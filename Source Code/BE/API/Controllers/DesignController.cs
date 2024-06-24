@@ -1,4 +1,6 @@
-﻿using API.Model.DesignModel;
+﻿using API.Model.BlogModel;
+using API.Model.DesignModel;
+using API.Model.UserModel;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,9 +31,7 @@ namespace API.Controllers
                 (string.IsNullOrEmpty(requestSearchDesignModel.MasterGemstone) || x.MasterGemstone.Kind.Contains(requestSearchDesignModel.MasterGemstone)) &&
                 (x.ManagerId == requestSearchDesignModel.ManagerId || requestSearchDesignModel.ManagerId == null) &&
                 (string.IsNullOrEmpty(requestSearchDesignModel.TypeOfJewellery) || x.TypeOfJewellery.Name.Contains(requestSearchDesignModel.TypeOfJewellery)) &&
-                (string.IsNullOrEmpty(requestSearchDesignModel.Material) || x.Material.Name.Contains(requestSearchDesignModel.Material)) &&
-                x.WeightOfMaterial >= requestSearchDesignModel.FromWeightOfMaterial &&
-                (x.WeightOfMaterial <= requestSearchDesignModel.ToWeightOfMaterial || requestSearchDesignModel.ToWeightOfMaterial == null);
+                (string.IsNullOrEmpty(requestSearchDesignModel.Material) || x.Material.Name.Contains(requestSearchDesignModel.Material)) ;
             Func<IQueryable<Design>, IOrderedQueryable<Design>> orderBy = null;
 
             if (!string.IsNullOrEmpty(sortBy))
@@ -101,7 +101,6 @@ namespace API.Controllers
                 Design.Image =  parentDesign.Image;
                 Design.TypeOfJewelleryId = parentDesign.TypeOfJewelleryId;
                 Design.Description = parentDesign.Description;
-                Design.WeightOfMaterial = parentDesign.WeightOfMaterial;
                 Design.ManagerId = null;
                 _unitOfWork.DesignRepository.Insert(Design);
                 _unitOfWork.Save();
@@ -118,6 +117,11 @@ namespace API.Controllers
         [HttpPost("DesignParent")]
         public IActionResult CreateDesignForManager(RequestCreateDesignModel requestCreateDesignModel)
         {
+            var user = _unitOfWork.UserRepository.GetByID((int)requestCreateDesignModel.ManagerId, m => m.Role);
+            if (user.Role.Name != RoleConst.Manager)
+            {
+                return BadRequest("Manager Id is not valid");
+            }
             var Design = requestCreateDesignModel.toDesignParentEntity();
             _unitOfWork.DesignRepository.Insert(Design);
             _unitOfWork.Save();
@@ -135,7 +139,6 @@ namespace API.Controllers
             existedDesign.ParentId = requestCreateDesignModel.ParentId;
             existedDesign.Image = requestCreateDesignModel.Image;
             existedDesign.DesignName = requestCreateDesignModel.DesignName;
-            existedDesign.WeightOfMaterial = (decimal)requestCreateDesignModel.WeightOfMaterial;
             existedDesign.StonesId = requestCreateDesignModel.StonesId;
             existedDesign.MasterGemstoneId = requestCreateDesignModel.MasterGemstoneId;
             existedDesign.ManagerId = requestCreateDesignModel.ManagerId;
