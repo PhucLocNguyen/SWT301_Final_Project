@@ -40,6 +40,9 @@ To install the Jewelry Production Order System, follow these steps:
 | --------- | --- |
 | UC19 - Create Account  | Nguyễn Đức Hùng  |
 | UC28 - Create Blog  | Nguyễn Đức Hùng  |
+| UC25 - Create Design  | Hà Gia Khánh  |
+| UC26 - Update Design  | Hà Gia Khánh  |
+| UC27 - Delete Design  | Hà Gia Khánh  |
 | UC34 - Create Stone  | Hà Gia Khánh  |
 | UC35 - Update Stone  | Hà Gia Khánh  |
 | UC36 - Delete Stone  | Hà Gia Khánh  |
