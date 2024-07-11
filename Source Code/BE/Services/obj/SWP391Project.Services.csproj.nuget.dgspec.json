@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj": {}
+    "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Services\\SWP391Project.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj": {
+    "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Repositories\\SWP391Project.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj",
+        "projectUniqueName": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Repositories\\SWP391Project.Repositories.csproj",
         "projectName": "SWP391Project.Repositories",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\obj\\",
+        "projectPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Repositories\\SWP391Project.Repositories.csproj",
+        "packagesPath": "C:\\Users\\HA GIA KHANH\\.nuget\\packages\\",
+        "outputPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HA GIA KHANH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -106,17 +106,17 @@
         }
       }
     },
-    "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj": {
+    "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Services\\SWP391Project.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj",
+        "projectUniqueName": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Services\\SWP391Project.Services.csproj",
         "projectName": "SWP391Project.Services",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\obj\\",
+        "projectPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Services\\SWP391Project.Services.csproj",
+        "packagesPath": "C:\\Users\\HA GIA KHANH\\.nuget\\packages\\",
+        "outputPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HA GIA KHANH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -130,8 +130,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj": {
-                "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj"
+              "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Repositories\\SWP391Project.Repositories.csproj": {
+                "projectPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Repositories\\SWP391Project.Repositories.csproj"
               }
             }
           }

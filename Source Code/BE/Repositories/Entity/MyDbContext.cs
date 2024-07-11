@@ -45,27 +45,25 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<WarrantyCard> WarrantyCards { get; set; }
 
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost;uid=sa;pwd=12345;database=JewelleryOrder;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Server=localhost;uid=sa;pwd=12345;database=JewelleryOrder;TrustServerCertificate=True");*/
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Blog>(entity =>
         {
-            entity.HasKey(e => e.BlogId).HasName("PK__Blog__54379E500BD944C0");
+            entity.HasKey(e => e.BlogId).HasName("PK__Blog__54379E50CE7B9A15");
 
             entity.ToTable("Blog");
 
             entity.Property(e => e.BlogId).HasColumnName("BlogID");
-            entity.Property(e => e.Description).HasColumnType("text");
-            entity.Property(e => e.Image).HasMaxLength(200);
             entity.Property(e => e.ManagerId).HasColumnName("ManagerID");
             entity.Property(e => e.Title).HasMaxLength(200);
 
             entity.HasOne(d => d.Manager).WithMany(p => p.Blogs)
                 .HasForeignKey(d => d.ManagerId)
-                .HasConstraintName("FK__Blog__ManagerID__2B3F6F97");
+                .HasConstraintName("FK__Blog__ManagerID__3D5E1FD2");
         });
 
         modelBuilder.Entity<Conversation>(entity =>
@@ -90,9 +88,7 @@ public partial class MyDbContext : DbContext
             entity.ToTable("Design");
 
             entity.Property(e => e.DesignId).HasColumnName("DesignID");
-            entity.Property(e => e.Description).HasColumnType("text");
             entity.Property(e => e.DesignName).HasMaxLength(100);
-            entity.Property(e => e.Image).HasMaxLength(200);
             entity.Property(e => e.ManagerId).HasColumnName("ManagerID");
             entity.Property(e => e.MasterGemstoneId).HasColumnName("MasterGemstoneID");
             entity.Property(e => e.MaterialId).HasColumnName("MaterialID");
@@ -147,8 +143,6 @@ public partial class MyDbContext : DbContext
 
             entity.Property(e => e.WarrantyCardId).HasColumnName("WarrantyCardID");
             entity.Property(e => e.RequirementId).HasColumnName("RequirementID");
-            entity.Property(e => e.DateCreated).HasColumnType("datetime");
-            entity.Property(e => e.ExpirationDate).HasColumnType("datetime");
 
             entity.HasOne(d => d.Requirement).WithMany(p => p.Haves)
                 .HasForeignKey(d => d.RequirementId)
@@ -170,7 +164,6 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.MasterGemstoneId).HasColumnName("MasterGemstoneID");
             entity.Property(e => e.Clarity).HasMaxLength(50);
             entity.Property(e => e.Cut).HasMaxLength(50);
-            entity.Property(e => e.Image).HasMaxLength(200);
             entity.Property(e => e.Kind).HasMaxLength(100);
             entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Shape).HasMaxLength(50);
@@ -185,7 +178,6 @@ public partial class MyDbContext : DbContext
             entity.ToTable("Material");
 
             entity.Property(e => e.MaterialId).HasColumnName("MaterialID");
-            entity.Property(e => e.Image).HasMaxLength(200);
             entity.Property(e => e.ManagerId).HasColumnName("ManagerID");
             entity.Property(e => e.Name).HasMaxLength(100);
             entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
@@ -229,9 +221,11 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
             entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.CompletedAt).HasColumnType("datetime");
+            entity.Property(e => e.Content).HasMaxLength(200);
             entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.Method).HasMaxLength(50);
             entity.Property(e => e.RequirementsId).HasColumnName("RequirementsID");
+            entity.Property(e => e.Status).HasMaxLength(50);
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Payments)
                 .HasForeignKey(d => d.CustomerId)
@@ -247,13 +241,11 @@ public partial class MyDbContext : DbContext
             entity.HasKey(e => e.RequirementId).HasName("PK__Requirem__7DF11E7D94BF4243");
 
             entity.Property(e => e.RequirementId).HasColumnName("RequirementID");
-            entity.Property(e => e.CustomerNote).HasColumnType("text");
-            entity.Property(e => e.Design3D).HasMaxLength(200);
             entity.Property(e => e.DesignId).HasColumnName("DesignID");
             entity.Property(e => e.MachiningFee).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.MasterGemStonePriceAtMoment).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.MaterialPriceAtMoment).HasColumnType("decimal(18, 2)");
-            entity.Property(e => e.Size).HasMaxLength(50);
-            entity.Property(e => e.StaffNote).HasColumnType("text");
+            entity.Property(e => e.Size).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Status).HasMaxLength(50);
             entity.Property(e => e.StonePriceAtMoment).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.TotalMoney).HasColumnType("decimal(18, 2)");
@@ -292,7 +284,6 @@ public partial class MyDbContext : DbContext
             entity.ToTable("TypeOfJewellery");
 
             entity.Property(e => e.TypeOfJewelleryId).HasColumnName("TypeOfJewelleryID");
-            entity.Property(e => e.Image).HasMaxLength(200);
             entity.Property(e => e.Name).HasMaxLength(100);
         });
 
@@ -342,7 +333,6 @@ public partial class MyDbContext : DbContext
             entity.ToTable("WarrantyCard");
 
             entity.Property(e => e.WarrantyCardId).HasColumnName("WarrantyCardID");
-            entity.Property(e => e.Description).HasColumnType("text");
             entity.Property(e => e.Title).HasMaxLength(100);
         });
 

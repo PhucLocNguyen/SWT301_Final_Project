@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Slide\\Sem_5\\SWP\\New folder\\BE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A9473BF7-9C4A-4073-A52F-C4A790268B9C}|Services\\SWP391Project.Services.csproj|d:\\slide\\sem_5\\swp\\new folder\\be\\services\\chatsystem\\conversationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9473BF7-9C4A-4073-A52F-C4A790268B9C}|Services\\SWP391Project.Services.csproj|solutionrelative:services\\chatsystem\\conversationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{591A095A-BE39-439A-BB80-40F6F9612ED9}|API\\API.csproj|D:\\Slide\\Sem_5\\SWP\\New folder\\BE\\api\\controllers\\designcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{591A095A-BE39-439A-BB80-40F6F9612ED9}|API\\API.csproj|solutionrelative:api\\controllers\\designcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConversationService.cs",
+              "DocumentMoniker": "D:\\Slide\\Sem_5\\SWP\\New folder\\BE\\Services\\ChatSystem\\ConversationService.cs",
+              "RelativeDocumentMoniker": "Services\\ChatSystem\\ConversationService.cs",
+              "ToolTip": "D:\\Slide\\Sem_5\\SWP\\New folder\\BE\\Services\\ChatSystem\\ConversationService.cs",
+              "RelativeToolTip": "Services\\ChatSystem\\ConversationService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T03:11:09.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DesignController.cs",
+              "DocumentMoniker": "D:\\Slide\\Sem_5\\SWP\\New folder\\BE\\API\\Controllers\\DesignController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\DesignController.cs",
+              "ToolTip": "D:\\Slide\\Sem_5\\SWP\\New folder\\BE\\API\\Controllers\\DesignController.cs",
+              "RelativeToolTip": "API\\Controllers\\DesignController.cs",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAkwCYAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T02:59:08.881Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
