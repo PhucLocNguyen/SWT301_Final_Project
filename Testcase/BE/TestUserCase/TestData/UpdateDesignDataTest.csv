@@ -1,0 +1,8 @@
+DesignId,ParentId,Image,DesignName,Description,StonesId,MasterGemstoneId,ManagerId,TypeOfJewelleryId,MaterialId,ExpectedValue
+3,,"https://firebasestorage.googleapis.com/v0/b/fir-e797a.appspot.com/o/item1.jpg?alt=media&token=aa586840-29a7-46c3-ab75-6db6302bb1ca",ring,ring,2,2,2,1,1,Update successfully
+3,,"https://firebasestorage.googleapis.com/v0/b/fir-e797a.appspot.com/o/item1.jpg?alt=media&token=aa586840-29a7-46c3-ab75-6db6302bb1ca",ring,ring,1,1,1,1,1,Manager Id is not valid
+3,,"https://firebasestorage.googleapis.com/v0/b/fir-e797a.appspot.com/o/item1.jpg?alt=media&token=aa586840-29a7-46c3-ab75-6db6302bb1ca",ring,ring,20,1,2,1,1,Stone Id is not valid
+3,,"https://firebasestorage.googleapis.com/v0/b/fir-e797a.appspot.com/o/item1.jpg?alt=media&token=aa586840-29a7-46c3-ab75-6db6302bb1ca",ring,ring,1,30,2,1,1,Master Gemstone Id is not valid
+3,,"https://firebasestorage.googleapis.com/v0/b/fir-e797a.appspot.com/o/item1.jpg?alt=media&token=aa586840-29a7-46c3-ab75-6db6302bb1ca",ring,ring,1,1,2,5,1,Type of jewellry Id is not valid
+3,,"https://firebasestorage.googleapis.com/v0/b/fir-e797a.appspot.com/o/item1.jpg?alt=media&token=aa586840-29a7-46c3-ab75-6db6302bb1ca",ring,ring,1,1,2,1,15,Material Id is not valid
+10,,"https://firebasestorage.googleapis.com/v0/b/fir-e797a.appspot.com/o/item1.jpg?alt=media&token=aa586840-29a7-46c3-ab75-6db6302bb1ca",ring,ring,2,2,2,1,1,Design is not existed
