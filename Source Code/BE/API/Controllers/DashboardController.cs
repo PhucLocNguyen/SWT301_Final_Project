@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Repositories;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,8 +20,8 @@ namespace API.Controllers
             this._unitOfWork = unitOfWork;
         }
 
-        [HttpGet("Revenue")]
-        public IActionResult GetRevenue(int? year)
+        [HttpGet("RevenueByYear")]
+        public IActionResult GetRevenueByYear(int? year)
         {
             try
             {
@@ -45,6 +46,51 @@ namespace API.Controllers
                     amount = entry.Value
                 }).ToList();
                 return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Something wrong in GetRevenue");
+            }
+        }
+        [HttpGet("RevenueByDate")]
+        public IActionResult GetRevenueByDate(DateTime? FromDate, DateTime? ToDate)
+        {
+            try
+            {
+                Hashtable collections = new Hashtable();
+                if (FromDate> ToDate)
+                {
+                    return BadRequest("The ToDate must be larger than FromDate");
+                }
+                long sum = 0;
+                while (FromDate<= ToDate)
+                {
+                    var PaymentByDate = _unitOfWork.PaymentRepository.Get(x => x.CompletedAt.Value.Date == FromDate && x.Status.Equals("Paid")).ToList();
+                    var RevenueByDate = PaymentByDate.GroupBy(x=>x.CompletedAt.Value).Select(x => new
+                    {
+                        Date = DateOnly.FromDateTime((DateTime)FromDate),
+                        Revenue = x.Sum(x => x.Amount)
+                    });
+                    sum = (long)(sum + (RevenueByDate.FirstOrDefault()?.Revenue??0));
+                    collections.Add(FromDate, RevenueByDate.FirstOrDefault()?.Revenue ?? 0);
+                    FromDate = FromDate.Value.AddDays(1);
+                }
+                var totalMoney = new
+                {
+                    ToTal = "Total money from: "+ DateOnly.FromDateTime((DateTime)FromDate) + " to " + DateOnly.FromDateTime((DateTime)FromDate),
+                    Revenue = sum
+                };
+                
+                var data = collections.Cast<DictionaryEntry>().Select(entry => new
+                {
+                    Date = DateOnly.FromDateTime((DateTime)entry.Key),
+                    amount = entry.Value
+                }).OrderBy(x=>x.Date).ToList();
+                return Ok(new
+                {
+                    totalMoney,
+                    data
+                });
             }
             catch (Exception ex)
             {

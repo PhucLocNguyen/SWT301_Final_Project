@@ -5089,19 +5089,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HA GIA KHANH\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\HA GIA KHANH\\.nuget\\packages\\",
-      "outputPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\API\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HA GIA KHANH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5115,11 +5115,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Repositories\\SWP391Project.Repositories.csproj": {
-              "projectPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Repositories\\SWP391Project.Repositories.csproj"
+            "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj": {
+              "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Repositories\\SWP391Project.Repositories.csproj"
             },
-            "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Services\\SWP391Project.Services.csproj": {
-              "projectPath": "D:\\Slide\\Sem_5\\SWP\\SWP\\BE\\Services\\SWP391Project.Services.csproj"
+            "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj": {
+              "projectPath": "C:\\Users\\Admin\\source\\repos\\SWP391Poject\\Services\\SWP391Project.Services.csproj"
             }
           }
         }

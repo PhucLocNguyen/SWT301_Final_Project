@@ -26,7 +26,7 @@ namespace API.Controllers
         }
         [HttpGet("{id}")]
 
-        public IActionResult GetById([FromRoute] int id, [FromQuery] int userId)
+        public IActionResult GetById([FromRoute]int id,[FromQuery] int userId)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace API.Controllers
             {
                 return BadRequest("Something wrong appears in GetById Conversation");
             }
-
+           
         }
         [HttpPost("all")]
         public IActionResult GetConversationByCurrentUser([FromBody] int userId)
@@ -61,19 +61,14 @@ namespace API.Controllers
             {
                 return BadRequest("Something wrong appears in GetConversationByCurrentUser");
             }
-
+           
         }
         [HttpPost]
         public IActionResult Create([FromBody] RequestCreateConversation model)
         {
             try
             {
-                if (!_conversationService.CheckValidConversation(model.userId1, model.userId2))
-                {
-                    return BadRequest();
-                }
-                else
-                {
+                
                     var conversation = _conversationService.CreateConversation(model.ToConversationEntity());
                     if (conversation != null)
                     {
@@ -84,13 +79,12 @@ namespace API.Controllers
                     {
                         return BadRequest();
                     }
-                }
             }
             catch (Exception ex)
             {
                 return BadRequest("Create conversation failes");
             }
-
+           
         }
     }
 }
