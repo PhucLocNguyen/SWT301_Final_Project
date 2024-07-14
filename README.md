@@ -58,5 +58,30 @@ To install the Jewelry Production Order System, follow these steps:
 | UC37 - Create Master Gemstones | Nguyễn Bá Đạt  |
 | UC38 - Update Master Gemstones  | Nguyễn Bá Đạt  |
 | UC39 - Delete Master Gemstones  | Nguyễn Bá Đạt  |
+## SPRINT 2: MAIN FLOW
+| Usecase | Student    |
+| --------- | --- |
+| UC05 - View Design | Nguyễn Bá Đạt |
+| UC06 - View Design Details | Nguyễn Bá Đạt |
+| UC12 - Deposit For Requirement | Nguyễn Bá Đạt |
+| UC13 - Get a 3D Design Of Jewelry | Nguyễn Bá Đạt |
+| UC14 - Confirm 3D Design Of Jewelry | Nguyễn Bá Đạt |
+| UC45 - Update 3d raft | Nguyễn Bá Đạt |
+| UC11 - Confirm Price | Nguyễn Phúc Lộc |
+| UC15 - Check Order Status | Nguyễn Phúc Lộc |
+| UC16 - Pay The Rest | Nguyễn Phúc Lộc |
+| UC50 - Send Price Request to Manager | Nguyễn Phúc Lộc |
+| UC51 - Contact with customer | Nguyễn Phúc Lộc |
+| UC43 - View list Approval Request | Hà Gia Khánh |
+| UC44 - Quote for requirement | Hà Gia Khánh |
+| UC49 - Receive Order | Hà Gia Khánh |
+| UC07 - Search Design | Đặng Phạm Xuân Lộc |
+| UC09 - Create Custom Design Request | Đặng Phạm Xuân Lộc |
+| UC10 - Get a Price For Design | Đặng Phạm Xuân Lộc |
+| UC08 - Select Design | Nguyễn Đức Hùng |
+| UC46 - Completed the 3D status | Nguyễn Đức Hùng |
+| UC47 - Update status | Nguyễn Đức Hùng |
+| UC48 - Completed the product status | Nguyễn Đức Hùng |
+
 
 
